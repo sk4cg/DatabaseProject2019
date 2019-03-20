@@ -1,0 +1,24 @@
+<?php
+        require "dbutil.php";
+        $db = DbUtil::loginConnection();
+
+        $stmt = $db->stmt_init();
+
+        if($stmt->prepare("select * from place where name like ?") or die(mysqli_error($db))) {
+                $searchString = '%' . $_GET['searchLastName'] . '%';
+                $stmt->bind_param(s, $searchString);
+                $stmt->execute();
+                $stmt->bind_result($name, $placeID, $rating);
+                echo "<table border=1><th>name</th><th>Place ID</th><th>Rating</th>\n";
+                while($stmt->fetch()) {
+                        echo "<tr><td>$name</td><td>$placeID</td><td>$rating</td></tr>";
+                }
+                echo "</table>";
+
+                $stmt->close();
+        }
+
+        $db->close();
+
+
+?>
