@@ -23,26 +23,34 @@
 <body>
 	<h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>	
         
-	<h4>What are you looking for?</h4>   
-	<form action="/action_page.php">
-  	<input type="radio" name="activity" value="movie"> Movies<br>
- 	 <input type="radio" name="activity" value="female"> Places<br>
- 	 <input type="radio" name="activity" value="concert"> Concerts<br>
-	<input type="radio" name="activity" value="park"> Parks<br>
-	<input type="radio" name="activity" value="putt"> Putt Putt<br>
-	<input type="radio" name="activity" value="rest"> Restaurants<br>  
-  	<input type="submit" value="Submit">
-	</form>
+	<h4>What do you want to search for? Press a button:</h4>   
+	<button id="places" class="float-left submit-button" >All Places</button>
 
-	<input class="xlarge" id="LastNinput" type="search" size="30" placeholder="Last Name Contains">
+	<button id="movies" class="float-left submit-button" >Movies</button>
+	<button id="concerts" class="float-left submit-button" >Concerts</button>
+	<button id="parks" class="float-left submit-button" >Parks</button>
+	<button id="puttputt" class="float-left submit-button" >Putt-Putt</button>
+	<button id="restaurants" class="float-left submit-button" >Restaurants</button>
 
-	<div id="LastNresult">Search Result</div>
-
-	<button id="myButton" class="float-left submit-button" >Search Places</button>
 
 <script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
+    document.getElementById("places").onclick = function () {
         location.href = "searchPlaces/";
+    };
+    document.getElementById("movies").onclick = function () {
+        location.href = "searchMovies/";
+    };
+    document.getElementById("concerts").onclick = function () {
+        location.href = "searchConcerts/";
+    };
+    document.getElementById("puttputt").onclick = function () {
+        location.href = "searchPuttPutt/";
+    };
+    document.getElementById("parks").onclick = function () {
+        location.href = "searchParks/";
+    };
+    document.getElementById("restaurants").onclick = function () {
+        location.href = "searchRestaurants/";
     };
 </script>
 
