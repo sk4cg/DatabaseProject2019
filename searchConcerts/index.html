@@ -1,1 +1,46 @@
-//hello
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://www.cs.virginia.edu/~cc5ny/ajax/ex01/ex01index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+ 	<title>AJAX Persons Example - Displaying FILES</title>
+	<script>
+	$(document).ready(function() {
+		$( "#Ainput" ).change(function() {
+		
+			$.ajax({
+				url: 'searchConcert.php', 
+				data: {searchConcert: $( "#Ainput" ).val()},
+				success: function(data){
+					$('#Aresult').html(data);	
+				
+				}
+			});
+		});
+		
+	});
+	$(document).ready(function() {
+                $( "#Ginput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchGenre.php',
+                                data: {searchGenre: $( "#Ginput" ).val()},
+                                success: function(data){
+                                        $('#Gresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+	</script>
+</head>
+<body>
+	<h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>	
+           
+	<input class="xlarge" id="Ainput" type="search" size="30" placeholder="Artist Name Contains">
+	<div id="Aresult">Artist Search Result</div>
+	<input class="xlarge" id="Ginput" type="search" size="30" placeholder="Search Genre">
+	<div id="Gresult">Genre Search Result</div>
+
+</body></html>
