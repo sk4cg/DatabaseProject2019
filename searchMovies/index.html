@@ -1,1 +1,30 @@
-//hello
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+        <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+        <title>AJAX Persons Example - Displaying FILES</title>
+        <script>
+        $(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+                
+                        $.ajax({
+                                url: 'searchMovies.php', 
+                                data: {searchMovies: $( "#Pinput" ).val()},
+                                success: function(data){
+                                        $('#Presult').html(data);       
+                                
+                                }
+                        });
+                });
+                
+        });
+        </script>
+</head>
+<body>
+        <h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>
+
+        <input class="xlarge" id="Pinput" type="search" size="30" placeholder="Movie Name Contains">
+
+        <div id="Presult">Search Result</div>
+
+</body></html>
