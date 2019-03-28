@@ -9,7 +9,7 @@
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
                 $stmt->bind_result($placeID, $title, $year, $name, $hours_of_op, $rating, $street, $city, $state);
-                echo "<table border=1><th>Title</th><th>Year</th><th>Name</th><th>Hours of Operation</th><th>Rating</th><th>Street</th><th>City</th><th>State</th>\n";                
+                echo "<table border=1><th>Movie Title</th><th>Movie Year</th><th>Theater Name</th><th>Hours of Operation</th><th>Theate Rating</th><th>Street</th><th>City</th><th>State</th>\n";                
 		while($stmt->fetch()) {
                         echo "<tr><td>$title</td><td>$year</td><td>$name</td><td>$hours_of_op</td><td>$rating</td><td>$street</td><td>$city</td><td>$state</td>";
                 }

@@ -18,13 +18,29 @@
                 });
                 
         });
+
+	  $(document).ready(function() {
+                $( "#Cinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchTheaters.php',
+                                data: {searchTheaters: $( "#Cinput" ).val()},
+                                success: function(data){
+                                        $('#Cresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
         </script>
 </head>
 <body>
         <h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>
 
-        <input class="xlarge" id="Pinput" type="search" size="30" placeholder="Movie Name Contains">
-
-        <div id="Presult">Search Result</div>
+        <input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Movie Title">
+	<div id="Presult">Movie Result</div>
+	<input class="xlarge" id="Cinput" type="search" size="30" placeholder="Search By Movie Theater">
+	<div id="Cresult">Theater Result</div>
 
 </body></html>
