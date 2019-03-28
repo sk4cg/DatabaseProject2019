@@ -1,1 +1,31 @@
-#hello
+<DOCTYPE html>
+<!-- saved from url=(0058)http://www.cs.virginia.edu/~cc5ny/ajax/ex01/ex01index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+ 	<title>AJAX Persons Example - Displaying FILES</title>
+	<script>
+	$(document).ready(function() {
+		$( "#Rinput" ).change(function() {
+		
+			$.ajax({
+				url: 'searchPuttPutt.php', 
+				data: {searchPuttPutt: $( "#Rinput" ).val()},
+				success: function(data){
+					$('#Rresult').html(data);	
+				
+				}
+			});
+		});
+		
+	});
+
+	</script>
+</head>
+<body>
+	<h3>Search Charlottesville Putt-Putt Places!</h3>	
+           
+	<input class="xlarge" id="Rinput" type="search" size="30" placeholder="Search By PlaceID">
+
+	<div id="Rresult"></div>
+</body></html>
