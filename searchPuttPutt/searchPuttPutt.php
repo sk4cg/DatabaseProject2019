@@ -4,14 +4,14 @@
 
         $stmt = $db->stmt_init();
 
-        if($stmt->prepare("select * from putt where placeID like ?") or die(mysqli_error($db))) {
+        if($stmt->prepare("select * from putt natural join place where name like ?") or die(mysqli_error($db))) {
                 $searchString = '%' . $_GET['searchPuttPutt'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
-                $stmt->bind_result($placeID, $num_holes, $price, $age);
-                echo "<table border=1><th>Place ID</th><th>Num Holes</th><th>Price</th><th>Age</th>\n";
+                $stmt->bind_result($placeID, $num_holes, $price, $age, $name, $hours_of_op, $rating, $street, $city, $state);
+                echo "<table border=1><th>name</th><th>hours_of_op</th><th>rating</th><th>city</th>\n";
                 while($stmt->fetch()) {
-                        echo "<tr><td>$placeID</td><td>$num_holes</td><td>$price</td><td>$age</td></tr>";
+                        echo "<tr><td>$name</td><td>$hours_of_op</td><td>$rating</td><td>$city</td></tr>";
                 }
                 echo "</table>";
 
