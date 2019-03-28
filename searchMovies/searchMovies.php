@@ -4,14 +4,14 @@
 
         $stmt = $db->stmt_init();
 
-        if($stmt->prepare("select * from movies where title like ?") or die(mysqli_error($db))) {
+        if($stmt->prepare("select * from plays natural join place where title like ?") or die(mysqli_error($db))) {
                 $searchString = '%' . $_GET['searchMovies'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
-                $stmt->bind_result($title, $year, $genre, $rating);
-                echo "<table border=1><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th>\n";                
+                $stmt->bind_result($placeID, $title, $year, $name, $hours_of_op, $rating, $street, $city, $state);
+                echo "<table border=1><th>Title</th><th>Year</th><th>Name</th><th>Hours of Operation</th><th>Rating</th><th>Street</th><th>City</th><th>State</th>\n";                
 		while($stmt->fetch()) {
-                        echo "<tr><td>$title</td><td>$year</td><td>$genre</td><td>$rating</td>";
+                        echo "<tr><td>$title</td><td>$year</td><td>$name</td><td>$hours_of_op</td><td>$rating</td><td>$street</td><td>$city</td><td>$state</td>";
                 }
                 echo "</table>";
 
