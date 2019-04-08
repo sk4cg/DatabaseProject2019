@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+        <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+        <title>Submit a Review</title>
+	<script>
+        $.ajax(
+	{
+		url: 'displayPlaces.php',
+		data: {displayPlaces: $("#Pinput").val()},
+		success: function(data){
+			$('#Presult').html(data);
+		}
+	}
+	);
+	$(document).ready(function() {
+                $( "#Cinput" ).change(function() {
+                
+                        $.ajax({
+                                url: 'submitReview.php', 
+                                data: {submitReview: $( "#Cinput" ).val()},
+                                success: function(data){
+                                        $('#Cresult').html(data);       
+                                
+                                }
+                        });
+                });
+		 $( "#Dinput" ).change(function() {
+                
+                        $.ajax({
+                                url: 'submitReview.php', 
+                                data: {submitReview: $( "#Dinput" ).val()},
+                                success: function(data){
+                                        $('#Dresult').html(data);       
+                                
+                                }
+                        });
+                });
+                
+        });
+        </script>
+</head>
+<body>
+        <h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>
+	<h4> Please refer to the table below to submit a review: <h4>
+	<div id="Presult"></div>
+	<br>
+	<form>
+	Place you are reviewing:
+        <input class="xlarge" id="Cinput" type="search" size="10" placeholder="Place ID"><br>
+	Review: <br>
+	<input class="xlarge" id="Dinput" type="search" size="200" placeholder="Write Review Here">
+	</form><br>
+	<div id="Dresult"></div>
+</body></html>
