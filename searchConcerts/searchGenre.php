@@ -4,14 +4,14 @@
 
         $stmt = $db->stmt_init();
 
-        if($stmt->prepare("select * from concert where genre like ?") or die(mysqli_error($db))) {
+        if($stmt->prepare("select artist, date, time, price, genre, name, capacity from concert natural join concert_venue natural join place where genre like ?") or die(mysqli_error($db))) {
                 $searchString = '%' . $_GET['searchGenre'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
-                $stmt->bind_result($concert_ID, $artist, $date, $time, $price, $genre);
-                echo "<table border=1><th>Concert ID</th><th>Artist</th><th>Date</th><th>Time</th><th>Price</th><th>Genre</th>\n";
+                $stmt->bind_result($artist, $date, $time, $price, $genre, $name, $capacity);
+                echo "<table border=1><th>Artist</th><th>Date</th><th>Time</th><th>Price</th><th>Genre</th><th>Venue Name</th><th>Venue Capactiy</th>\n";
                 while($stmt->fetch()) {
-                        echo "<tr><td>$concert_ID</td><td>$artist</td><td>$date</td><td>$time</td><td>$price</td><td>$genre</td></tr>";
+                        echo "<tr><td>$artist</td><td>$date</td><td>$time</td><td>$price</td><td>$genre</td><td>$name</td><td>$capacity</td></tr>";
                 }
                 echo "</table>";
 
