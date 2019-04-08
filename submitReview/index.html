@@ -14,24 +14,12 @@
 	}
 	);
 	$(document).ready(function() {
-                $( "#Cinput" ).change(function() {
-                
+                $( "#Dinput" ).change(function() {
                         $.ajax({
                                 url: 'submitReview.php', 
-                                data: {submitReview: $( "#Cinput" ).val()},
+                                data: {submitR: $( "#Cinput" ).val(), actualR: $( "#Dinput" ).val()},
                                 success: function(data){
                                         $('#Cresult').html(data);       
-                                
-                                }
-                        });
-                });
-		 $( "#Dinput" ).change(function() {
-                
-                        $.ajax({
-                                url: 'submitReview.php', 
-                                data: {submitReview: $( "#Dinput" ).val()},
-                                success: function(data){
-                                        $('#Dresult').html(data);       
                                 
                                 }
                         });
@@ -45,11 +33,10 @@
 	<h4> Please refer to the table below to submit a review: <h4>
 	<div id="Presult"></div>
 	<br>
-	<form>
 	Place you are reviewing:
         <input class="xlarge" id="Cinput" type="search" size="10" placeholder="Place ID"><br>
 	Review: <br>
 	<input class="xlarge" id="Dinput" type="search" size="200" placeholder="Write Review Here">
-	</form><br>
-	<div id="Dresult"></div>
+	<button type="submit" value="Submit">Submit</button>
+	<div id="Cresult"></div>
 </body></html>
