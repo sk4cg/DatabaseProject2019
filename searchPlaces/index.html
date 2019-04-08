@@ -20,12 +20,28 @@
 		
 	});
 	</script>
+	<script>
+        $(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+                
+                        $.ajax({
+                                url: 'searchPlace.php', 
+                                data: {reviewDisplay: $( "#Pinput" ).val()},
+                                success: function(data){
+                                        $('#Dresult').html(data);       
+                                
+                                }
+                        });
+                });
+                
+        });
+        </script>
 </head>
 <body>
 	<h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>	
            
 	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Place Name Contains">
 
-	<div id="Presult">Search Result</div>
+	<div id="Presult">Search Result</div><br/>
 
 </body></html>
