@@ -33,14 +33,63 @@
                 });
 
         });
+	$(document).ready(function() {
+                $( "#Dinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchDate.php',
+                                data: {searchDate: $( "#Dinput" ).val()},
+                                success: function(data){
+                                        $('#Dresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+	$(document).ready(function() {
+                $( "#Vinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchVenue.php',
+                                data: {searchVenue: $( "#Vinput" ).val()},
+                                success: function(data){
+                                        $('#Vresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+	$(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchPrice.php',
+                                data: {searchPrice: $( "#Pinput" ).val()},
+                                success: function(data){
+                                        $('#Presult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+
 	</script>
 </head>
 <body>
 	<h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>	
            
-	<input class="xlarge" id="Ainput" type="search" size="30" placeholder="Artist Name Contains">
-	<div id="Aresult">Artist Search Result</div>
-	<input class="xlarge" id="Ginput" type="search" size="30" placeholder="Search Genre">
-	<div id="Gresult">Genre Search Result</div>
-
+	<input class="xlarge" id="Ainput" type="search" size="30" placeholder="Search By Artist">
+	<div id="Aresult"></div>
+	<input class="xlarge" id="Ginput" type="search" size="30" placeholder="Search By Genre">
+	<div id="Gresult"></div>
+	<input class="xlarge" id="Vinput" type="search" size="30" placeholder="Search By Venue">
+	<div id="Vresult"></div>
+	<input class="xlarge" id="Dinput" type="search" size="30" placeholder="Search By Date (yyyy-mm-dd)">
+	<div id="Dresult"></div>
+	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price">
+	<div id="Presult"></div>
 </body></html>
