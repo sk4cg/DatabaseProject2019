@@ -31,7 +31,9 @@
 	<button id="parks" class="float-left submit-button" >Parks</button>
 	<button id="puttputt" class="float-left submit-button" >Putt-Putt</button>
 	<button id="restaurants" class="float-left submit-button" >Restaurants</button>
-
+<br/>
+<h4> Here to submit a review? <h4>
+<button id="review" class="float left submit-button" > Submit a Review </button>
 
 <script type="text/javascript">
     document.getElementById("places").onclick = function () {
@@ -51,6 +53,9 @@
     };
     document.getElementById("restaurants").onclick = function () {
         location.href = "searchRestaurants/";
+    };
+    document.getElementById("review").onclick = function () {
+        location.href = "submitReview/";
     };
 </script>
 
