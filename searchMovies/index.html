@@ -34,6 +34,38 @@
 
         });
         </script>
+	<script>
+        $(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+                
+                        $.ajax({
+                                url: 'searchMovies.php', 
+                                data: {searchMovies: $( "#Pinput" ).val()},
+                                success: function(data){
+                                        $('#Presult').html(data);       
+                                
+                                }
+                        });
+                });
+                
+        });
+        </script>
+	     <script>
+        $(document).ready(function() {
+                $( "#Cinput" ).change(function() {
+                
+                        $.ajax({
+                                url: 'searchTheaters.php', 
+                                data: {searchTheaters: $( "#Cinput" ).val()},
+                                success: function(data){
+                                        $('#Cresult').html(data);       
+                                
+                                }
+                        });
+                });
+                
+        });
+        </script>
 </head>
 <body>
         <h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>
