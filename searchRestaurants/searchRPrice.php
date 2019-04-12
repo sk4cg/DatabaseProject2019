@@ -14,6 +14,17 @@
                         echo "<tr><td>$name</td><td>$price</td><td>$ambiance</td><td>$cuisine</td><td>$menu</td></tr>";
                 }
                 echo "</table>";
+        }
+	if($stmt->prepare("select name, review from restaurant natural join place natural join place_review where price like ?") or die(mysqli_error($db))) {
+                $searchString = $_GET['searchRPrice'];
+                $stmt->bind_param(s, $searchString);
+                $stmt->execute();
+                $stmt->bind_result($name, $review);
+                echo "<table border=1><h3>Restaurant Reviews</h3><th>Restaurant Name</th><th>Review</th>\n";
+                while($stmt->fetch()) {
+                        echo "<tr><td>$name</td><td>$review</td></tr>";
+                }
+                echo "</table>";
 
                 $stmt->close();
         }
