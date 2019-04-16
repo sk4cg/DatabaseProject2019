@@ -14,6 +14,17 @@
                         echo "<tr><td>$title</td><td>$year</td><td>$name</td><td>$hours_of_op</td><td>$rating</td><td>$street</td><td>$city</td><td>$state</td>";
                 }
                 echo "</table>";
+        }
+	 if($stmt->prepare("select distinct name, review from plays natural join place natural join place_review where title like ?") or die(mysqli_error($db))) {
+                $searchString = '%' . $_GET['searchMovies'] . '%';
+                $stmt->bind_param(s, $searchString);
+                $stmt->execute();
+                $stmt->bind_result($name, $review);
+                echo "<table border=1><h3>Reviews</h3><th>Name</th><th>Review</th>\n";
+                while($stmt->fetch()) {
+                        echo "<tr><td>$name</td><td>$review</td>";
+                }
+                echo "</table>";
 
                 $stmt->close();
         }

@@ -3,22 +3,15 @@
         $db = DbUtil::loginConnection();
 
         $stmt = $db->stmt_init();
-	$
-        if($stmt->prepare("insert into place_review(placeID, review) values(p, r)") or die(mysqli_error($db))) {
-                $ID = '%' . $_GET['submitReview'] . '%';
-		$stmt->bind_param(p, $Cinput);
-		$stmt->bind_param(r, $Dinput);
+
+	if($stmt->prepare("INSERT INTO place_review (placeID, review) VALUES (?,?)") or die(mysqli_error($db))) {
+                $stmt->bind_param(ss, $ref, $aReview);
+		$ref = $_GET['submitR'];
+                $aReview = $_GET['actualR'];
                 $stmt->execute();
-                $stmt->bind_result($placeID, $review);
-                echo "<table border=1><th>Name of Place</th><th>Place ID</th>\n";
-                while($stmt->fetch()) {
-                        echo "<tr><td>$placeID</td><td>$review</td>";
-                }
-                echo "</table>";
-
+		echo "New Review Added Successfully";
                 $stmt->close();
-        }
-
+        }       
         $db->close();
 
 

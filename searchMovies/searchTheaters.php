@@ -15,6 +15,19 @@
                 }
                 echo "</table>";
 
+ 
+        }
+	if($stmt->prepare("select distinct name, review from place natural join plays natural join place_review where name like ?") or die(mysqli_error($db))) {
+                $searchString = '%' . $_GET['searchTheaters'] . '%';
+                $stmt->bind_param(s, $searchString);
+                $stmt->execute();
+                $stmt->bind_result($name, $review);
+                echo "<table border=1><h3>Reviews</h3><th>Theater</th><th>Review</th>\n";
+                while($stmt->fetch()) {
+                        echo "<tr><td>$name</td><td>$review</td></tr>";
+                }
+                echo "</table>";
+
                 $stmt->close();
         }
 

@@ -1,5 +1,6 @@
-
+<!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel='stylesheet' href='styles.css' type='text/css' />
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
 	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
  	<title>AJAX Persons Example - Displaying FILES</title>
@@ -21,8 +22,14 @@
 	</script>
 </head>
 <body>
+	<div class="div1">
 	<h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>	
-        
+	</div>
+	<div class="div2">
+		<img src="cville.jpg"> 
+	</div>        
+	
+	<div class="div3">
 	<h4>What do you want to search for? Press a button:</h4>   
 	<button id="places" class="float-left submit-button" >All Places</button>
 
@@ -31,9 +38,10 @@
 	<button id="parks" class="float-left submit-button" >Parks</button>
 	<button id="puttputt" class="float-left submit-button" >Putt-Putt</button>
 	<button id="restaurants" class="float-left submit-button" >Restaurants</button>
+	</div>
 <br/>
-<h4> Here to submit a review? <h4>
-<button id="review" class="float left submit-button" > Submit a Review </button>
+<div class="div4"><h4> Here to submit a review? <h4></div>
+<button id="review" class="float-left2 submit-button" > Submit a Review </button>
 
 <script type="text/javascript">
     document.getElementById("places").onclick = function () {
