@@ -5,7 +5,7 @@
         $stmt = $db->stmt_init();
 
         if($stmt->prepare("select artist, date, time, price, genre, name, capacity from concert natural join concert_venue natural join place where price like ?") or die(mysqli_error($db))) {
-                $searchString = '%' . $_GET['searchPrice'] . '%';
+                $searchString = '' . $_GET['searchPrice'] . '';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
                 $stmt->bind_result($artist, $date, $time, $price, $genre, $name, $capacity);

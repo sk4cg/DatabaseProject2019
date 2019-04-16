@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<!-- saved from url=(0058)http://www.cs.virginia.edu/~cc5ny/ajax/ex01/ex01index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
-	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
- 	<title>AJAX Persons Example - Displaying FILES</title>
-	<script>
-	$(document).ready(function() {
-		$( "#Ainput" ).change(function() {
-		
-			$.ajax({
-				url: 'searchConcert.php', 
-				data: {searchConcert: $( "#Ainput" ).val()},
-				success: function(data){
-					$('#Aresult').html(data);	
-				
-				}
-			});
-		});
-		
-	});
-	$(document).ready(function() {
+    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+        <title>AJAX Persons Example - Displaying FILES</title>
+        <script>
+        $(document).ready(function() {
+                $( "#Ainput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchConcert.php',
+                                data: {searchConcert: $( "#Ainput" ).val()},
+                                success: function(data){
+                                        $('#Aresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+        $(document).ready(function() {
                 $( "#Ginput" ).change(function() {
 
                         $.ajax({
@@ -33,7 +32,7 @@
                 });
 
         });
-	$(document).ready(function() {
+        $(document).ready(function() {
                 $( "#Dinput" ).change(function() {
 
                         $.ajax({
@@ -47,7 +46,7 @@
                 });
 
         });
-	$(document).ready(function() {
+    $(document).ready(function() {
                 $( "#Vinput" ).change(function() {
 
                         $.ajax({
@@ -61,7 +60,7 @@
                 });
 
         });
-	$(document).ready(function() {
+        $(document).ready(function() {
                 $( "#Pinput" ).change(function() {
 
                         $.ajax({
@@ -75,21 +74,19 @@
                 });
 
         });
-
-
-	</script>
+        </script>
 </head>
 <body>
-	<h3>Welcome to our Charlottesville Activity Lookup Website! (CALW)</h3>	
-           
-	<input class="xlarge" id="Ainput" type="search" size="30" placeholder="Search By Artist">
-	<div id="Aresult"></div>
-	<input class="xlarge" id="Ginput" type="search" size="30" placeholder="Search By Genre">
-	<div id="Gresult"></div>
-	<input class="xlarge" id="Vinput" type="search" size="30" placeholder="Search By Venue">
-	<div id="Vresult"></div>
-	<input class="xlarge" id="Dinput" type="search" size="30" placeholder="Search By Date (yyyy-mm-dd)">
-	<div id="Dresult"></div>
-	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price">
-	<div id="Presult"></div>
+        <h3>Search for Charlottesville Concerts!</h3>
+
+        <input class="xlarge" id="Ainput" type="search" size="30" placeholder="Search By Artist">
+        <div id="Aresult"></div>
+        <input class="xlarge" id="Ginput" type="search" size="30" placeholder="Search By Genre">
+        <div id="Gresult"></div>
+        <input class="xlarge" id="Vinput" type="search" size="30" placeholder="Search By Venue">
+        <div id="Vresult"></div>
+        <input class="xlarge" id="Dinput" type="search" size="30" placeholder="Search By Date (yyyy-mm-dd)">
+        <div id="Dresult"></div>
+        <input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price (e.g. $50)">
+        <div id="Presult"></div>
 </body></html>
