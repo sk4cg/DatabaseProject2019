@@ -13,7 +13,7 @@ session_start();
         $.ajax(
 	{
 		url: 'displayPlaces.php',
-		data: {displayPlaces: $("#Pinput").val(), permission: $( "#perm" ).val()},
+		data: {displayPlaces: $("#Pinput").val(), permission: 'ram8yx_b'},
 		success: function(data){
 			$('#Presult').html(data);
 		}
