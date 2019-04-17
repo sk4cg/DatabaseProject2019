@@ -1,5 +1,12 @@
 <?php
 session_start();
+if(empty($_SESSION['permission'])){
+echo "Hello! To access this webpage, you first must login or make an account.";
+echo <<<HTML
+<a href="../../login">Log In</a>
+HTML;
+exit;
+}
 ?>
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
