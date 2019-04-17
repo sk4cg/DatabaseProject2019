@@ -1,5 +1,4 @@
 <?php
-	session_start();
         require "dbutil.php";
         $db = DbUtil::loginConnection();
 
@@ -13,11 +12,17 @@
 		$stmt->store_result();
 		if($stmt->num_rows > 0){
 		$stmt->bind_result($username, $password, $permission);
+		while($stmt->fetch()) {
+                        $newVariable=$permission;
+                }
+		session_start();
+		$_SESSION["permission"] = $permission;
 		echo "<div>";
-		echo "Login Success.";
-		echo "</div>";
-		header('Location: CALW');
+                echo $_SESSION["permission"];
+                echo "</div>";
+		header('Location: CALW/index.php');
 		exit;
+		
 
 } else {
   echo "Sorry, login was unsuccessful. Please go back and try again or create a new login.";
@@ -30,18 +35,3 @@
 
 
 ?>
-
-<html>
-
-<head>
-	<title>CALW LOGIN</title>
-</head>
-
-<body>
-<br></br>
-<form>
-  <input type="button" value="Back to Login" onclick="history.back()">
-</form>
-
-</body>
-</html>

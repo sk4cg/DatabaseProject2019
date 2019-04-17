@@ -3,7 +3,7 @@ class DbUtil{
 	public static $loginUser = "ram8yx"; 
 	public static $loginPass = "Reset123";
 	public static $host = "mysql.cs.virginia.edu"; // DB Host
-	public static $schema = "ram8yx"; // DB Schema
+	public static $schema = $_SESSION['permission']; // DB Schema
 	
 	public static function loginConnection(){
 		$db = new mysqli(DbUtil::$host, DbUtil::$loginUser, DbUtil::$loginPass, DbUtil::$schema);
