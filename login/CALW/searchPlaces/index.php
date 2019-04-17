@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0058)http://www.cs.virginia.edu/~cc5ny/ajax/ex01/ex01index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
@@ -12,7 +16,7 @@
 		
 			$.ajax({
 				url: 'searchPlace.php', 
-				data: {searchPlace: $( "#Pinput" ).val()},
+				data: {searchPlace: $( "#Pinput" ).val(), permission: $( "#perm" ).val()},
 				success: function(data){
 					$('#Presult').html(data);	
 				
@@ -31,7 +35,7 @@
                 
                         $.ajax({
                                 url: 'searchPlace.php', 
-                                data: {reviewDisplay: $( "#Pinput" ).val()},
+                                data: {reviewDisplay: $( "#Pinput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
                                         $('#Dresult').html(data);       
                                 
@@ -49,6 +53,7 @@
         <div class="div2">
                 <img src="blueridge.jpg">
         </div>
+	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
 	<br></br>
 	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Place Name Contains">
 	<button type="button" class="button">Search</button>
