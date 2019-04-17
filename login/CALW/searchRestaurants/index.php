@@ -1,6 +1,5 @@
 <?php
 session_start();
-$global_permission = $_SESSION["permission"];
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ $global_permission = $_SESSION["permission"];
 		
 			$.ajax({
 				url: 'searchRestaurants.php', 
-				data: {searchRestaurants: $( "#Rinput" ).val()},
+				data: {searchRestaurants: $( "#Rinput" ).val(), permission: $( "#perm" ).val()},
 				success: function(data){
 					$('#Rresult').html(data);	
 				
@@ -32,7 +31,7 @@ $global_permission = $_SESSION["permission"];
 
                         $.ajax({
                                 url: 'searchRCuisine.php',
-                                data: {searchRCuisine: $( "#Cinput" ).val()},
+                                data: {searchRCuisine: $( "#Cinput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
                                         $('#Cresult').html(data);
 
@@ -65,8 +64,7 @@ $global_permission = $_SESSION["permission"];
 	<div class="div1">
 	<h3>Search Charlottesville Restaurants!</h3>	
         </div>
-
-	<div id="perm"><?php $_SESSION["permission"]?></div>
+	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
 
 	<input class="xlarge" id="Rinput" type="search" size="30" placeholder="Search By Ambiance">
 
