@@ -49,6 +49,7 @@ exit;
 	<button id="parks" class="float-left submit-button" >Parks</button>
 	<button id="puttputt" class="float-left submit-button" >Putt-Putt</button>
 	<button id="restaurants" class="float-left submit-button" >Restaurants</button>
+	<button id="logout" class="float-left submit-button">Logout</button>
 	</div>
 <br/>
 <div class="div4"><h4> Here to submit a review? <h4></div>
@@ -75,6 +76,17 @@ exit;
     };
     document.getElementById("review").onclick = function () {
         location.href = "submitReview/";
+    };
+    document.getElementById("logout").onclick = function() {
+    	<?php
+    session_start();
+    session_unset();
+    session_destroy();
+    session_write_close();
+    setcookie(session_name(),'',0,'/');
+    session_regenerate_id(true);
+?>
+	location.href="../";
     };
 </script>
 

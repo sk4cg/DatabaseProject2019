@@ -3,7 +3,7 @@ session_start();
 if(empty($_SESSION['permission'])){
 echo "Hello! To access this webpage, you first must login or make an account.";
 echo <<<HTML
-<a href="../../login">Log In</a>
+<a href="../../../login">Log In</a>
 HTML;
 exit;
 }
