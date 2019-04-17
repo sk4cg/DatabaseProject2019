@@ -1,6 +1,6 @@
 <?php
         require "dbutil.php";
-        $db = DbUtil::loginConnection();
+        $db = DbUtil::loginConnection($_GET['permission']);
 
         $stmt = $db->stmt_init();
 

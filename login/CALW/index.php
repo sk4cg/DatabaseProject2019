@@ -32,9 +32,7 @@ session_start();
 	<div class="div2">
 		<img src="cville.jpg"> 
 	</div>        
-	<div class="testdiv">
-	  <p> This is working... <?php echo $_SESSION['permission']?> </p>
-</div>
+
 	<div class="div3">
 	<h4>What do you want to search for? Press a button:</h4>   
 	<button id="places" class="float-left submit-button" >All Places</button>
