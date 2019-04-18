@@ -25,7 +25,7 @@ exit;
 				url: 'searchRestaurants.php', 
 				data: {searchRestaurants: $( "#Rinput" ).val(), permission: $( "#perm" ).val()},
 				success: function(data){
-					$('#Rresult').html(data);	
+					$('#Presult').html(data);	
 				
 				}
 			});
@@ -40,7 +40,7 @@ exit;
                                 url: 'searchRCuisine.php',
                                 data: {searchRCuisine: $( "#Cinput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
-                                        $('#Cresult').html(data);
+                                        $('#Presult').html(data);
 
                                 }
                         });
@@ -79,13 +79,13 @@ exit;
 
 	<input class="xlarge" id="Cinput" type="search" size="30" placeholder="Search By Cuisine">
 
-	<div id="Cresult" style="width: 60%; margin: 0 auto;"></div>
+	<div id="Cresult" style="width: 80%; margin: 0 auto;"></div>
 
 	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price (enter $-$$$$)">
 	
-	<br></br>
-	<br></br>
+	<p>
         
-	<div id="Presult" style="width: 60%; margin: 0 auto;"></div>
+	<div id="Presult" style="width: 80%; margin: 0 auto;"></div>
+	<p>
 	<button class="button" type="button">Search</button>
 </body></html>
