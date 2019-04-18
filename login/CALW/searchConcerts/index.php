@@ -24,7 +24,7 @@ exit;
                                 url: 'searchConcert.php',
                                 data: {searchConcert: $( "#Ainput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
-                                        $('#Aresult').html(data);
+                                        $('#Presult').html(data);
 
                                 }
                         });
@@ -38,7 +38,7 @@ exit;
                                 url: 'searchGenre.php',
                                 data: {searchGenre: $( "#Ginput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
-                                        $('#Gresult').html(data);
+                                        $('#Presult').html(data);
 
                                 }
                         });
@@ -52,7 +52,7 @@ exit;
                                 url: 'searchDate.php',
                                 data: {searchDate: $( "#Dinput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
-                                        $('#Dresult').html(data);
+                                        $('#Presult').html(data);
 
                                 }
                         });
@@ -66,7 +66,7 @@ exit;
                                 url: 'searchVenue.php',
                                 data: {searchVenue: $( "#Vinput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
-                                        $('#Vresult').html(data);
+                                        $('#Presult').html(data);
 
                                 }
                         });
@@ -100,14 +100,16 @@ exit;
         </div>   
 	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
 	<input class="xlarge" id="Ainput" type="search" size="30" placeholder="Search By Artist">
-	<div id="Aresult" style="width: 47%; margin: 0 auto;"></div>
+	<div id="Aresult" style="width: 70%; margin: 0 auto;"></div>
 	<input class="xlarge" id="Ginput" type="search" size="30" placeholder="Search By Genre">
-	<div id="Gresult" style="width: 47%; margin: 0 auto;"></div>
+	<div id="Gresult" style="width: 70%; margin: 0 auto;"></div>
 	<input class="xlarge" id="Vinput" type="search" size="30" placeholder="Search By Venue">
-	<div id="Vresult" style="width: 47%; margin: 0 auto;"></div>
+	<div id="Vresult" style="width: 70%; margin: 0 auto;"></div>
 	<input class="xlarge" id="Dinput" type="search" size="30" placeholder="Search By Date (yyyy-mm-dd)">
-	<div id="Dresult" style="width: 47%; margin: 0 auto;"></div>
+	<div id="Dresult" style="width: 70%; margin: 0 auto;"></div>
 	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price (e.g. $50)">
-	<div id="Presult" style="width: 47%; margin: 0 auto;"></div>
+	<p>
+	<div id="Presult" style="width: 70%; margin: 0 auto;"></div>
+	<p>
 	<button class="button" type="button">Search</button>
 </body></html>

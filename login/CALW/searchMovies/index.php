@@ -24,7 +24,7 @@ exit;
                                 url: 'searchMovies.php', 
                                 data: {searchMovies: $( "#Pinput" ).val(), permission: $( "#perm" ).val()},
                                 success: function(data){
-                                        $('#Presult').html(data);       
+                                        $('#Cresult').html(data);       
                                 
                                 }
                         });

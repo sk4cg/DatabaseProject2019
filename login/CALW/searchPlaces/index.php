@@ -62,7 +62,7 @@ exit;
         </div>
 	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
 	<br></br>
-	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Place Name Contains">
+	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search for Place">
 	<button type="button" class="button">Search</button>
 	
 	<br></br>
