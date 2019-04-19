@@ -25,7 +25,7 @@
 		
 
 } else {
-  echo "Sorry, login was unsuccessful. Please go back and try again or create a new login.";
+  echo "Sorry, login was unsuccessful. Please go back and try again or create a new account.";
 }
 
                 $stmt->close();
