@@ -47,9 +47,9 @@ exit;
 	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
 
 	<input class="xlarge" id="Rinput" type="search" size="30" placeholder="Search By Place Name">
+	<p>
 	<button class="button" type="button">Search</button>
 	
-	<br></br>
 	<br></br>
 
 	<div id="Rresult" style="width: 39%; margin: 0 auto;"></div>
