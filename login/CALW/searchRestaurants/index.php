@@ -62,6 +62,52 @@ exit;
                 });
 
         });
+
+	$(document).ready(function() {
+                $( "#Rinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchAReviews.php',
+                                data: {searchAReviews: $( "#Rinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Xresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Cinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchCReviews.php',
+                                data: {searchCReviews: $( "#Cinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Xresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchPReviews.php',
+                                data: {searchPReviews: $( "#Pinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Xresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
 	 function goBack() {
             window.history.back();
         }
@@ -84,8 +130,9 @@ exit;
 	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price (enter $-$$$$)">
 	
 	<p>
-        
+        <button class="button" type="button">Search</button>
+	<p>
 	<div id="Presult" style="width: 80%; margin: 0 auto;"></div>
 	<p>
-	<button class="button" type="button">Search</button>
+	<div id="Xresult" style="width: 30%; margin: 0 auto;"></div>
 </body></html>
