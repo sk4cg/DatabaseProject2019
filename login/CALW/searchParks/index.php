@@ -32,6 +32,52 @@ exit;
 		});
 		
 	});
+	
+	$(document).ready(function() {
+                $( "#Tinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchType.php',
+                                data: {searchType: $( "#Tinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Rinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchPReviews.php',
+                                data: {searchPReviews: $( "#Rinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Xresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Tinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchTReviews.php',
+                                data: {searchTReviews: $( "#Tinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Xresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
  	function goBack() {
             window.history.back();
         }
@@ -47,12 +93,16 @@ exit;
         </div>
 	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
 	<input class="xlarge" id="Rinput" type="search" size="30" placeholder="Search By Park Name">
+	<br>
+	<input class="xlarge" id="Tinput" type="search" size="30" placeholder="Search By Park Type (e.g. dog)">
+	<p>
 	<button class="button" type="button">Search</button>
 
-	<br></br>
-	<br></br>
+	<p>
 		
-	<div id="Rresult" style="width: 39%; margin: 0 auto;"></div>
+	<div id="Rresult" style="width: 30%; margin: 0 auto;"></div>
+	<p>
+	<div id="Xresult" style="width: 30%; margin: 0 auto;"></div>
 	
 	<br></br>
 

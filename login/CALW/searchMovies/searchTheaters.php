@@ -5,7 +5,7 @@
         $stmt = $db->stmt_init();
 
         if($stmt->prepare("select title, year, name, street, city, state from plays natural join place where name like ?") or die(mysqli_error($db))) {
-                $searchString = '%' . $_GET['searchMovies'] . '%';
+                $searchString = '%' . $_GET['searchTheaters'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
                 $stmt->bind_result($title, $year, $name, $street, $city, $state);
@@ -15,9 +15,9 @@
                 }
                 echo "</table>";
         }
-	/* 
-	 if($stmt->prepare("select distinct name, review from plays natural join place natural join place_review where title like ?") or die(mysqli_error($db))) {
-                $searchString = '%' . $_GET['searchMovies'] . '%';
+/*	
+	 if($stmt->prepare("select distinct name, review from plays natural join place natural join place_review where name like ?") or die(mysqli_error($db))) {
+                $searchString = '%' . $_GET['searchReviews'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
                 $stmt->bind_result($name, $review);
@@ -29,8 +29,8 @@
 
                 $stmt->close();
         }
-	*/
-
+	
+*/
         $db->close();
 
 

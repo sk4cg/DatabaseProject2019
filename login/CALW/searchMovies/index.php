@@ -46,6 +46,37 @@ exit;
                 });
 
         });
+
+	$(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchMReviews.php',
+                                data: {searchMReviews: $( "#Pinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Cinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchTReviews.php',
+                                data: {searchTReviews: $( "#Cinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
 	 function goBack() {
             window.history.back();
         }
@@ -61,6 +92,8 @@ exit;
 	<div id="Presult" style="width: 60%; margin: 0 auto;"></div>
 	<input class="xlarge" id="Cinput" type="search" size="30" placeholder="Search By Movie Theater">
 	</br></br>        
-	<div id="Cresult" style="width: 60%; margin: 0 auto;"></div>
 	<button class="button" type="button">Search</button>
+	<p>
+	<div id="Cresult" style="width: 60%; margin: 0 auto;"></div>
+ 	<div id="Rresult" style="width: 60%; margin: 0 auto;"></div> 
 </body></html>

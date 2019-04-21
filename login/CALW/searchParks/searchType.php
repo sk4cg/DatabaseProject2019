@@ -4,8 +4,8 @@
 
         $stmt = $db->stmt_init();
 
-        if($stmt->prepare("select * from park natural join place where name like ?") or die(mysqli_error($db))) {
-                $searchString = '%' . $_GET['searchPark'] . '%';
+        if($stmt->prepare("select * from park natural join place where type like ?") or die(mysqli_error($db))) {
+                $searchString = '%' . $_GET['searchType'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
                 $stmt->bind_result($placeID, $num_bathrooms, $type, $name, $hours_of_op, $rating, $street, $city, $state);

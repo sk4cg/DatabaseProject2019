@@ -1,23 +1,35 @@
 <?php
         require "dbutil.php";
-        $db = DbUtil::loginConnection();
+        $db = DbUtil::loginConnection($_GET['permission']);
 
         $stmt = $db->stmt_init();
 
-        if($stmt->prepare("select * from movies where title like ?") or die(mysqli_error($db))) {
+        if($stmt->prepare("select title, rating, year, name, street, city, state from plays natural join place where title like ?") or die(mysqli_error($db))) {
                 $searchString = '%' . $_GET['searchMovies'] . '%';
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
-                $stmt->bind_result($title, $year, $genre, $rating, $times, $tickets_available, $food_menu, $price);
-                echo "<table border=1><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th><th>Times</th><th>Tickets Available</th><th>Food Menu</th><th>Price</th>\n";               
+                $stmt->bind_result($title, $year, $name, $street, $city, $state);
+                echo "<table border=1><th>Movie Title</th><th>Movie Year</th><th>Theater Name</th><th>Street</th><th>City</th><th>State</th>\n";                
 		while($stmt->fetch()) {
-                        echo "<tr><td>$title</td><td>$year</td><td>$genre</td><td>$rating</td><td>$times</td><td>$tickets_available</td><td>$food_menu</td><td>$price</td></tr>";
+                        echo "<tr><td>$title</td><td>$year</td><td>$name</td><td>$street</td><td>$city</td><td>$state</td>";
+                }
+                echo "</table>";
+        }
+/*
+	 if($stmt->prepare("select distinct name, review from plays natural join place natural join place_review where title like ?") or die(mysqli_error($db))) {
+                $searchString = '%' . $_GET['searchReviews'] . '%';
+                $stmt->bind_param(s, $searchString);
+                $stmt->execute();
+                $stmt->bind_result($name, $review);
+                echo "<table border=1><h3>Reviews</h3><th>Name</th><th>Review</th>\n";
+                while($stmt->fetch()) {
+                        echo "<tr><td>$name</td><td>$review</td>";
                 }
                 echo "</table>";
 
                 $stmt->close();
         }
-
+*/
         $db->close();
 
 

@@ -88,6 +88,82 @@ exit;
 
         });
 
+	$(document).ready(function() {
+                $( "#Ainput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchAReviews.php',
+                                data: {searchAReviews: $( "#Ainput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Ginput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchGReviews.php',
+                                data: {searchGReviews: $( "#Ginput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Vinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchVReviews.php',
+                                data: {searchVReviews: $( "#Vinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Dinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchDReviews.php',
+                                data: {searchDReviews: $( "#Dinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+	$(document).ready(function() {
+                $( "#Pinput" ).change(function() {
+
+                        $.ajax({
+                                url: 'searchPReviews.php',
+                                data: {searchPReviews: $( "#Pinput" ).val(), permission: $( "#perm" ).val()},
+                                success: function(data){
+                                        $('#Rresult').html(data);
+
+                                }
+                        });
+                });
+
+        });
+
+
 	function goBack() {
             window.history.back();
         }
@@ -109,7 +185,9 @@ exit;
 	<div id="Dresult" style="width: 70%; margin: 0 auto;"></div>
 	<input class="xlarge" id="Pinput" type="search" size="30" placeholder="Search By Price (e.g. $50)">
 	<p>
+	<button class="button" type="button">Search</button>
+	<p>
 	<div id="Presult" style="width: 70%; margin: 0 auto;"></div>
 	<p>
-	<button class="button" type="button">Search</button>
+	<div id="Rresult" style="width: 30%; margin: 0 auto;"></div>
 </body></html>
