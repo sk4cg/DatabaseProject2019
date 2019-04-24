@@ -5,11 +5,9 @@
 
         if($stmt->prepare("delete from place_review where reviewID=?") or die(mysqli_error($db))) {
                 $searchString = $_GET['deleteP'];
-                echo $_GET['deleteP'];
-		     echo $_GET['perm'];
                 $stmt->bind_param(s, $searchString);
                 $stmt->execute();
-               echo "deleted successfully";
+               echo "Deleted successfully!";
 	              $stmt->close();
 		      }
 
