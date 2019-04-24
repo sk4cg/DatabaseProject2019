@@ -189,5 +189,5 @@ exit;
 	<p>
 	<div id="Presult" style="width: 70%; margin: 0 auto;"></div>
 	<p>
-	<div id="Rresult" style="width: 30%; margin: 0 auto;"></div>
+	<div id="Rresult" style="width: 70%; margin: 0 auto;"></div>
 </body></html>
