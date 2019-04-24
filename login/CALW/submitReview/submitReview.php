@@ -8,8 +8,11 @@
                 $stmt->bind_param(ss, $ref, $aReview);
 		$ref = $_GET['submitR'];
                 $aReview = $_GET['actualR'];
-                $stmt->execute();
-		echo "New Review Added Successfully";
+                
+		$stmt->execute();
+                if(mysqli_error($db)){
+		echo mysqli_error($db);}
+		else{echo "New Review Added Successfully";}
                 $stmt->close();
         }       
         $db->close();
