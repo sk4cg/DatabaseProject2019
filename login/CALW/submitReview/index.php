@@ -13,8 +13,23 @@ echo <<<HTML
   To delete a review, insert reviewID: <input type="text" name="deleteP"><br>
   <input type="hidden" name="perm" value="ram8yx_a" />
 </form>
-
 <button type="submit" form="form1" value="Submit" onclick="return confirm('Are you sure you want to delete?');">Submit</button>
+
+<p id="demo" onclick="myFunction()">Click me to get the list of all reviews for reference (when deleting)!</p>
+
+<script>
+function myFunction() {
+  $.ajax(
+        {
+                url: 'displayReviews.php',
+                data: {permission: 'ram8yx_b'},
+                success: function(data){
+                        $('#Rresult').html(data);
+                }
+        }
+        );
+}
+</script>
 <br></br>
 HTML;
 }
