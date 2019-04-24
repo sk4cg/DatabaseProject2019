@@ -11,7 +11,7 @@ exit;
 
 <?php
 echo <<<HTML
-<a href="download.php">Download Information on Charlottesville Places</a>
+<a href="download.php">Download List of Charlottesville Places</a>
 HTML;
 ?>
 

@@ -9,10 +9,17 @@ exit;
 }
 ?>
 
+<?php
+echo <<<HTML
+<a href="download.php">Download List of Charlottesville Parks</a>
+HTML;
+?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0058)http://www.cs.virginia.edu/~cc5ny/ajax/ex01/ex01index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 	<link rel='stylesheet' href='styles.css' type='text/css' />
+	<p>
     	<button class="backbutton" onclick="goBack()">Go Back</button>
         <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
 	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
