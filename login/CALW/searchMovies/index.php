@@ -9,9 +9,16 @@ exit;
 }
 ?>
 
+<?php
+echo <<<HTML
+<a href="download.php">Download List of Charlottesville Movie Theaters</a>
+HTML;
+?>
+
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <link rel='stylesheet' href='styles.css' type='text/css' />
+    <p>
     <button class="backbutton" onClick="goBack()">Go Back</button>
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
         <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
