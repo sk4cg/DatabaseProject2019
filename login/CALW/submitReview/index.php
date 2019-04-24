@@ -7,6 +7,17 @@ echo <<<HTML
 HTML;
 exit;
 }
+if($_SESSION['permission'] == 'ram8yx_a'){
+echo <<<HTML
+<form action="deleteReview.php" method="get" id="form1">
+  To delete a review, insert reviewID: <input type="text" name="deleteP"><br>
+  <input type="hidden" name="perm" value="ram8yx_a" />
+</form>
+
+<button type="submit" form="form1" value="Submit" onclick="return confirm('Are you sure you want to delete?');">Submit</button>
+<br></br>
+HTML;
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +61,7 @@ exit;
 	<h3> Please refer to the table below to submit a review:  <h3>
 	</div>
 	<input type="hidden" id="perm" value="<?php echo $_SESSION["permission"]; ?>"/>
+	<div id="Rresult"></div>
 	<div id="Presult"></div>
 	<br>
 	Place you are reviewing:

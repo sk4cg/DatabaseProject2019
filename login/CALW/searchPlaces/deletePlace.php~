@@ -1,0 +1,15 @@
+<?php
+        require "dbutil.php";
+        $db = DbUtil::loginConnection($_GET['perm']);
+        $stmt = $db->stmt_init();
+
+        if($stmt->prepare("delete from place where placeID=?") or die(mysqli_error($db))) {
+                $searchString = $_GET['deleteP'];
+		echo $_GET['deleteP'];
+                $stmt->bind_param(s, $searchString);
+                $stmt->execute();
+               echo "deleted successfully";
+        }
+
+        $db->close();
+?>
